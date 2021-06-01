@@ -1,0 +1,46 @@
+body{
+    background-color: black;
+}
+
+
+#finalGrid{
+    background-color:white;
+    border:solid #ff0000;
+    width:210px;
+    height:210px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    overflow: auto;
+ }
+
+ #playGrid{
+   background-color:white;
+   border:solid #ff0000;
+   width:500px;
+   height:500px;
+   margin-left: auto;
+   margin-right: auto;
+   overflow: auto;
+ }
+
+
+.cell {
+   float: left;
+   text-align: center;
+   font-size:150%;
+   font-family: Arial;
+   font-weight: bold;
+   position:relative;
+ }
+ 
+ .cell:hover {
+    background-color: rgb(221,221,221);
+ }
+
+.empty-block{
+   background-color: black;
+}
+
+
