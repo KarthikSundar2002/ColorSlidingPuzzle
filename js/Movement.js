@@ -41,7 +41,7 @@ tiles.map(tile => {
             NoOfMoves;
 
         }
-      
+
 
     })
 })

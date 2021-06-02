@@ -149,7 +149,7 @@ function CheckSolvablity(){
 if (document.URL.includes("easy")) {
     while(!solvable){
         document.getElementById("finalGrid").innerHTML = '';
-        document.getElementById("playGrid").innerHTML = '<div class="victory-screen"><h1>You Win</h1><h2 id="Score"></h2></div>';
+        document.getElementById("playGrid").innerHTML = '<div class="victory-screen"><h1>You Win</h1><h2 id="Score"></h2><p id="Highscore"></p></div>';
         GridGenerator(3,"finalGrid");
         GridGenerator(5,"playGrid");
         CheckSolvablity();
@@ -159,7 +159,7 @@ if (document.URL.includes("easy")) {
 if (document.URL.includes("medium")) {
     while(!solvable){
         document.getElementById("finalGrid").innerHTML = '';
-        document.getElementById("playGrid").innerHTML = '<div class="victory-screen"><h1>You Win</h1><h2 id="Score"></h2></div>';
+        document.getElementById("playGrid").innerHTML = '<div class="victory-screen"><h1>You Win</h1><h2 id="Score"></h2><p id="Highscore"></p></div>';
         GridGenerator(4,"finalGrid");
         GridGenerator(6,"playGrid");
         CheckSolvablity();

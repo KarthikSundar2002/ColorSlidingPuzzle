@@ -1,5 +1,5 @@
 var Won = false;
-
+var PlayerName = "";
 const Tiles = Array.from(document.querySelectorAll("#playGrid .cell"));
 function WinChecker(r1){
     for (let i = 0; i < r1; i++) {
@@ -21,6 +21,7 @@ Tiles.map(
     tile => {
         tile.addEventListener("click",event => {
             WinChecker(3);
+            Won = true;
             if (Won) {
                 document.querySelector(".victory-screen").style.display = "block";
 
@@ -29,7 +30,23 @@ Tiles.map(
                 console.log(timeTaken);
                 var Score = Math.floor((10000000/timeTaken) + 10000/NoOfMoves);
                 document.getElementById("Score").innerHTML = `You got a score of ${Score}`;
+                if (localStorage.getItem("HighScore") == null) {
+                    localStorage.setItem("HighScore",Score);
+                    PlayerName = window.prompt("Thanks for first trying out the game. What's your name: ");
+                    localStorage.setItem("Player",PlayerName);
 
+                }else{
+                    var CurrentHighScore = localStorage.getItem("HighScore");
+                    if (Score >= CurrentHighScore)  {
+                        PlayerName = window.prompt("You are the Highscorer. Enter your name Champion: ");
+                        localStorage.setItem("HighScore",Score);
+                        localStorage.setItem("Player",PlayerName);
+                        document.getElementById("Highscore").innerHTML = `Hey ${PlayerName}, You're the Champion now!`;
+                    }
+                    if (Score < CurrentHighScore) {
+                        document.getElementById("Highscore").innerHTML = `${localStorage.getItem("Player")} is the champion with a score of ${localStorage.getItem("HighScore")}`;
+                    }
+                }
             }
         })
     }
