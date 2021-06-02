@@ -97,15 +97,18 @@ function GridGenerator(rows,gridID){
         for (let j = 0; j < rows; j++) {
             document.getElementById(gridID).innerHTML += "<div class='cell' id='" + gridID + k + "' data-row ='" + i + "' data-col ='" + j + "'></div>";
             k++;
+            if(i > 0 && i < rows && j > 0 &&  j < rows && gridID == "playGrid"){
+                document.querySelector(`#${gridID} [data-row = "${i}"][data-col = "${j}"]`).style.border = " 10px thick solid #000000";
+
+            }
         }
     }
 
     for (let t = 1; t < k; t++) {
         colorSelect(gridID);
         document.querySelector("#"+ gridID + t).style.background = color;
-        document.querySelector("#"+ gridID + t).style.width = widthOfGrid/rows +"px";
-        document.querySelector("#"+ gridID + t).style.height = heightOfGrid/rows + "px";
-
+        document.querySelector("#"+ gridID + t).style.width = (widthOfGrid-50)/rows +"px";
+        document.querySelector("#"+ gridID + t).style.height = (heightOfGrid-50)/rows + "px";
 
     }
 
@@ -142,6 +145,8 @@ function CheckSolvablity(){
 }
 
 while(!solvable){
+    document.getElementById("finalGrid").innerHTML = "";
+    document.getElementById("playGrid").innerHTML = "";
     GridGenerator(3,"finalGrid");
     GridGenerator(5,"playGrid");
     CheckSolvablity();

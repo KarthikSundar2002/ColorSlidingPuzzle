@@ -22,7 +22,14 @@ Tiles.map(
         tile.addEventListener("click",event => {
             WinChecker(3);
             console.log(Won);
+            
+            if (Won) {
+                document.querySelector(".victory-screen").style.display = "block";
+            }
         })
     }
 )
 
+if (Won) {
+    document.getElementById("#playGrid").classList.add("victory-screen");
+}
