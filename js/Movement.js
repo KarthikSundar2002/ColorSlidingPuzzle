@@ -1,9 +1,10 @@
 
-
 const grid = document.querySelector("#playGrid");
 const tiles = Array.from(document.querySelectorAll("#playGrid .cell"));
 const emptyTile = document.querySelector(".empty-block");
-
+var NoOfMoves = 0;
+var StartTime = 0;
+var EndTime = 0;
 
 
 tiles.map(tile => {
@@ -11,38 +12,36 @@ tiles.map(tile => {
 
         var row = Number.parseInt(tile.getAttribute("data-row"));
         var col = Number.parseInt(tile.getAttribute("data-col"));
+        var Lefttile = document.querySelector(`#playGrid [data-col ="${col - 1}"][data-row ="${row}"]`);
 
-        // var tilePos = GetPos(tile);
-        if(col-1 > -1){
-            var Lefttile = document.querySelector(`#playGrid [data-col ="${col - 1}"][data-row ="${row}"]`);
+        if(Lefttile != null && Lefttile.classList.contains("empty-block")) {
+            swapTiles(tile.id);
 
-            if(Lefttile.classList.contains("empty-block")) {
-                swapTiles(tile.id);
-            }
+            NoOfMoves++;
         }
-        if(col + 1 <  5){
 
-            var Righttile = document.querySelector(`#playGrid [data-col ="${col + 1}"][data-row ="${row}"]`);
 
-            if(Righttile.classList.contains("empty-block")){
-                swapTiles(tile.id);
+        var Righttile = document.querySelector(`#playGrid [data-col ="${col + 1}"][data-row ="${row}"]`);
 
-            }
+        if(Righttile != null && Righttile.classList.contains("empty-block")){
+            swapTiles(tile.id);
+            NoOfMoves++;
         }
-        if(row-1 > -1){
-            var Toptile = document.querySelector(`#playGrid [data-col ="${col}"][data-row ="${row-1}"]`);
-            if(Toptile.classList.contains("empty-block")){
-                swapTiles(tile.id);
 
-            }
+        var Toptile = document.querySelector(`#playGrid [data-col ="${col}"][data-row ="${row-1}"]`);
+        if(Toptile != null && Toptile.classList.contains("empty-block")){
+            swapTiles(tile.id);
+            NoOfMoves++;
         }
-        if(row+1 < 5){
-            var Bottile = document.querySelector(`#playGrid [data-col ="${col}"][data-row ="${row + 1}"]`);
-            if(Bottile.classList.contains("empty-block")){
-                swapTiles(tile.id);
 
-            }
+        var Bottile = document.querySelector(`#playGrid [data-col ="${col}"][data-row ="${row + 1}"]`);
+
+        if(Bottile != null && Bottile.classList.contains("empty-block")){
+            swapTiles(tile.id);
+            NoOfMoves;
+
         }
+      
 
     })
 })
@@ -56,6 +55,8 @@ function swapTiles(cell1){
     document.getElementById(cell1).classList.add("empty-block");
     document.getElementsByClassName("empty-block")[0].style.background = "#000000";
 }
+
+
 
 
 

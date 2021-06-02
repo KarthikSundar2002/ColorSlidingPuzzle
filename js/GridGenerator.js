@@ -93,6 +93,7 @@ function GridGenerator(rows,gridID){
     let k = 1;
     widthOfGrid = document.getElementById(gridID).clientWidth;
     heightOfGrid = document.getElementById(gridID).clientHeight;
+    document.getElementById(gridID).style.gridTemplateColumns = `repeat(${rows},1fr)`;
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < rows; j++) {
             document.getElementById(gridID).innerHTML += "<div class='cell' id='" + gridID + k + "' data-row ='" + i + "' data-col ='" + j + "'></div>";
@@ -107,8 +108,8 @@ function GridGenerator(rows,gridID){
     for (let t = 1; t < k; t++) {
         colorSelect(gridID);
         document.querySelector("#"+ gridID + t).style.background = color;
-        document.querySelector("#"+ gridID + t).style.width = (widthOfGrid-50)/rows +"px";
-        document.querySelector("#"+ gridID + t).style.height = (heightOfGrid-50)/rows + "px";
+        // document.querySelector("#"+ gridID + t).style.width = (widthOfGrid-50)/rows +"px";
+        // document.querySelector("#"+ gridID + t).style.height = (heightOfGrid-50)/rows + "px";
 
     }
 
@@ -144,11 +145,24 @@ function CheckSolvablity(){
     }
 }
 
-while(!solvable){
-    document.getElementById("finalGrid").innerHTML = "";
-    document.getElementById("playGrid").innerHTML = "";
-    GridGenerator(3,"finalGrid");
-    GridGenerator(5,"playGrid");
-    CheckSolvablity();
 
+if (document.URL.includes("easy")) {
+    while(!solvable){
+        document.getElementById("finalGrid").innerHTML = '';
+        document.getElementById("playGrid").innerHTML = '<div class="victory-screen"><h1>You Win</h1><h2 id="Score"></h2></div>';
+        GridGenerator(3,"finalGrid");
+        GridGenerator(5,"playGrid");
+        CheckSolvablity();
+
+    }
+}
+if (document.URL.includes("medium")) {
+    while(!solvable){
+        document.getElementById("finalGrid").innerHTML = '';
+        document.getElementById("playGrid").innerHTML = '<div class="victory-screen"><h1>You Win</h1><h2 id="Score"></h2></div>';
+        GridGenerator(4,"finalGrid");
+        GridGenerator(6,"playGrid");
+        CheckSolvablity();
+
+    }
 }

@@ -21,15 +21,21 @@ Tiles.map(
     tile => {
         tile.addEventListener("click",event => {
             WinChecker(3);
-            console.log(Won);
-            
             if (Won) {
                 document.querySelector(".victory-screen").style.display = "block";
+
+                EndTime = Date.now();
+                var timeTaken = EndTime - StartTime;
+                console.log(timeTaken);
+                var Score = Math.floor((10000000/timeTaken) + 10000/NoOfMoves);
+                document.getElementById("Score").innerHTML = `You got a score of ${Score}`;
+
             }
         })
     }
 )
-
-if (Won) {
-    document.getElementById("#playGrid").classList.add("victory-screen");
+if (NoOfMoves == 1) {
+    StartTime = Date.now();
 }
+
+
