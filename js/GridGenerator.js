@@ -1,12 +1,13 @@
 
+// I named them red yellow and stuff but later turned them into a good color
+// so just ignore it
 
-
-const red = "#ff0000"
-const yellow = "#ffff00"
-const orange = "#ffa500"
-const blue = "#0000ff"
-const white = "#ffffff"
-const green = "#00ff00"
+const red = "#BF3100"
+const yellow = "#F5BB00"
+const orange = "#3185FC"
+const blue = "#34E5FF"
+const white = "#801A86"
+const green = "#82FF9E"
 
 var color;
 

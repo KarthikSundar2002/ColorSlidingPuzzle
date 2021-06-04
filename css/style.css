@@ -3,12 +3,12 @@
 }
 
 body{
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 .victory-screen{
   z-index: 2;
-  align-content: center;
-  background:white;
+  text-align: center;
+  background:rgba(241, 217, 0, 0.753);
   color: black;
   display:none;
   width: 60vmin;
@@ -19,6 +19,13 @@ body{
   overflow: auto;
   position: absolute;
 }
+
+.victory-screen h1{
+  margin-top: 40%;
+  width: auto;
+  height: auto;
+}
+
 @media (min-width: 500px){
   #finalGrid{
     background-color:black;

@@ -29,7 +29,7 @@ Tiles.map(
                 var timeTaken = EndTime - StartTime;
                 console.log(timeTaken);
                 var Score = Math.floor((10000000/timeTaken) + 10000/NoOfMoves);
-                document.getElementById("Score").innerHTML = `You got a score of ${Score}`;
+                document.getElementById("Score").innerHTML = `Your Score: ${Score}`;
                 if (localStorage.getItem("HighScore") == null) {
                     localStorage.setItem("HighScore",Score);
                     PlayerName = window.prompt("Thanks for first trying out the game. What's your name: ");
