@@ -85,7 +85,10 @@ body{
    position:relative;
  }
 
-
+#PlayerAnnoucement{
+  color:white;
+  text-align: center;
+}
 
 .empty-block{
    background-color: black;

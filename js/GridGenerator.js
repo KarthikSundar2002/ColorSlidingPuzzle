@@ -117,6 +117,25 @@ function GridGenerator(rows,gridID){
     if (gridID == "playGrid") {
         let i = Math.floor(Math.random() * 25) + 1;
     document.getElementById(gridID+i).classList.add("empty-block");
+    var OrginalColor = document.getElementById(gridID+i).style.background;
+    switch (OrginalColor) {
+        case red:
+            pRedCount--;
+            break;
+        case blue:
+            pBlueCount--;
+            break;
+        case green:
+            pGreenCount--;
+            break;
+        case orange:
+            pOrangeCount--;
+        case white:
+            pWhiteCount--;
+        case yellow:
+            pYellowCount--;
+
+    }
     document.getElementsByClassName("empty-block")[0].style.background = "#000000"
     }
 
@@ -167,3 +186,4 @@ if (document.URL.includes("medium")) {
 
     }
 }
+
