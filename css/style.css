@@ -21,8 +21,19 @@ body{
 }
 
 .victory-screen h1{
-  margin-top: 40%;
+  
   width: auto;
+  height: auto;
+}
+
+#Score {
+  width: auto;
+  height: auto;
+
+}
+
+#HighScore {
+  width:auto;
   height: auto;
 }
 

@@ -46,8 +46,8 @@ Tiles.map(
             if(document.URL.includes("medium")){
                 WinChecker(4);
             }
-            
 
+            Won= true;
             if (Won && !(document.URL.includes("multiplayer"))) {
                 document.querySelector(".victory-screen").style.display = "block";
                 VictoryAudio.play();
@@ -102,7 +102,10 @@ Tiles.map(
                 if(Won){
                     var NoOfMovesPlayer2 = NoOfMoves;
                     NoOfMoves = 0;
+
                     var NoOfMovesPlayer1 = localStorage.getItem("Player1Moves");
+                    console.log(NoOfMovesPlayer1)
+                    console.log(NoOfMovesPlayer2)
                     document.querySelector(".victory-screen").style.display = "block";
                     VictoryAudio.play();
                     if (NoOfMovesPlayer2 > NoOfMovesPlayer1) {
@@ -114,7 +117,7 @@ Tiles.map(
                         multiplayerHighScore = NoOfMovesPlayer2;
                         document.querySelector(".victory-screen h1").innerHTML = "Player 2 Wins";
                     }
-                    if (NoOfMovesPlayer2 = NoOfMovesPlayer1) {
+                    if (NoOfMovesPlayer2 == NoOfMovesPlayer1) {
                         multiplayerHighScore = NoOfMovesPlayer1;
                         document.querySelector(".victory-screen h1").innerHTML = "Draw";
                     }
