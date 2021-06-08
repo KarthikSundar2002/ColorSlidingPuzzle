@@ -47,7 +47,7 @@ Tiles.map(
                 WinChecker(4);
             }
 
-            Won= true;
+
             if (Won && !(document.URL.includes("multiplayer"))) {
                 document.querySelector(".victory-screen").style.display = "block";
                 VictoryAudio.play();
@@ -81,7 +81,7 @@ Tiles.map(
                 WinChecker(3);
 
 
-                console.log(Won);
+                
                 if(Won){
                     localStorage.setItem("Player1Moves",NoOfMoves);
 
@@ -98,7 +98,7 @@ Tiles.map(
                 WinChecker(3);
 
 
-                console.log(Won);
+
                 if(Won){
                     var NoOfMovesPlayer2 = NoOfMoves;
                     NoOfMoves = 0;

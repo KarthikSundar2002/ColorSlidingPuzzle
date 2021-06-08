@@ -6,20 +6,18 @@ var NoOfMoves = 0;
 var StartTime = 0;
 var EndTime = 0;
 
-if (document.URL.includes("multiplayer_2")) {
-    console.log("Movemnet.js is accessed")
-}
+
 tiles.map(tile => {
     tile.addEventListener("click", event => {
-        console.log("Entering eventListener");
+
         var row = Number.parseInt(tile.getAttribute("data-row"));
         var col = Number.parseInt(tile.getAttribute("data-col"));
 
         var Lefttile = document.querySelector(`#playGrid [data-col ="${col - 1}"][data-row ="${row}"]`);
-        console.log(Lefttile);
+
         if(Lefttile != null && Lefttile.classList.contains("empty-block")) {
             swapTiles(tile.id);
-            console.log("Entering LeftTile Check");
+            
             NoOfMoves++;
         }
 

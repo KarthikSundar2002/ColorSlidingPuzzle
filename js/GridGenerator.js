@@ -109,8 +109,7 @@ function GridGenerator(rows,gridID){
     for (let t = 1; t < k; t++) {
         colorSelect(gridID);
         document.querySelector("#"+ gridID + t).style.background = color;
-        // document.querySelector("#"+ gridID + t).style.width = (widthOfGrid-50)/rows +"px";
-        // document.querySelector("#"+ gridID + t).style.height = (heightOfGrid-50)/rows + "px";
+       
 
     }
 
